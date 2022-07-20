@@ -1,0 +1,21 @@
+/* You can add global styles to this file, and also import other style files */
+html,
+body {
+  font-family: sans-serif;
+}
+
+input.ng-invalid.ng-touched {
+  border: 1px solid #dc3545;
+  transition: color 0.25s;
+}
+
+.error-message {
+  color: #dc3545;
+  position: absolute;
+  font-size: 12px;
+}
+
+.custom-height {
+  height: 90vh;
+  overflow: auto;
+}

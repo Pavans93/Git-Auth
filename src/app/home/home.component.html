@@ -1,0 +1,45 @@
+<div class="row d-flex align-items-center ">
+
+    <div class="col-sm-12 col-md-6 col-lg-6 col-xl-6">
+        <div class="shadow p-1 mt-2 mb-4 bg-body rounded custom-height">
+            <div class="card-body">
+                <div class="card-text mb-2">
+                    <img [src]="userData.avatar_url" style="height:50px;width:50px;" alt="Image not found" />
+                    <p>{{userData.name}}</p>
+                    <p>{{userData.login}}</p>
+                    <p>{{userData.bio}}</p>
+                    <p>{{userData.location}}</p>
+                    <p>No. of Public Repos : {{userData.public_repos}}</p>
+                    <div class="d-grid gap-2 mt-4">
+                        <button class="btn btn-success" type="button" (click)="signOut()">
+                            Sign Out
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="col-sm-12 col-md-6 col-lg-6 col-xl-6">
+        <div class="shadow p-1 mt-2 mb-4 bg-body rounded custom-height">
+            <div class="card-body" *ngIf="repoList && repoList.length!=0;else not_found">
+                <div class="card-text mb-2">
+                    <table class="table table-striped ">
+                        <thead>
+                            <tr>
+                                <th scope="col">Repositories</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr *ngFor="let item of repoList">
+                                <td>{{item.name}} </td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+            <ng-template #not_found>Public repos not found for this account!!!</ng-template>
+        </div>
+    </div>
+
+</div>
